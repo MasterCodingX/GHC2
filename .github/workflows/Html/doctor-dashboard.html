@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Doctor Dashboard</h2>
+        <p>Welcome, Doctor!</p>
+        <button onclick="logout()">Logout</button>
+
+        <h3>Blood Sugar Levels</h3>
+        <ul id="blood-sugar-list"></ul>
+    </div>
+
+    <script>
+        const patients = [
+            { name: "John Doe", bloodSugar: [90, 110, 105, 95] },
+            { name: "Jane Smith", bloodSugar: [85, 102, 98, 100] }
+        ];
+
+        const sugarList = document.getElementById("blood-sugar-list");
+        patients.forEach(patient => {
+            const li = document.createElement("li");
+            li.textContent = `${patient.name}: ${patient.bloodSugar.join(", ")}`;
+            sugarList.appendChild(li);
+        });
+
+        function logout() {
+            window.location.href = "index.html";
+        }
+    </script>
+</body>
+</html>

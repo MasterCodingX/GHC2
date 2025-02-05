@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Admin Dashboard</h2>
+        <p>Welcome, Admin!</p>
+        <button onclick="logout()">Logout</button>
+
+        <h3>Patient List</h3>
+        <ul id="patient-list"></ul>
+    </div>
+
+    <script>
+        const patients = [
+            { name: "John Doe", age: 45, bloodPressure: "120/80", bloodSugar: [90, 110, 105, 95] },
+            { name: "Jane Smith", age: 52, bloodPressure: "130/85", bloodSugar: [85, 102, 98, 100] }
+        ];
+
+        const patientList = document.getElementById("patient-list");
+        patients.forEach(patient => {
+            const li = document.createElement("li");
+            li.textContent = `${patient.name} (Age: ${patient.age}), Blood Pressure: ${patient.bloodPressure}`;
+            patientList.appendChild(li);
+        });
+
+        function logout() {
+            window.location.href = "index.html";
+        }
+    </script>
+</body>
+</html>
